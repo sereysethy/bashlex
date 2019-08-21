@@ -42,8 +42,8 @@ def _parsedolparen(parserobj, base, sindex):
     node, endp = _recursiveparse(parserobj, base, sindex, tokenizerargs)
 
     if string[endp] != ')':
-        while endp > 0 and string[endp-1] == '\n':
-            endp -= 1
+        while endp > 0 and string[endp] != ')':
+            endp += 1
 
     return node, sindex + endp
 
